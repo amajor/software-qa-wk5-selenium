@@ -3,7 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
 
-class PythonOrgSearch(unittest.TestCase):
+class TestLewisUniversityWebsite(unittest.TestCase):
 
     def setUp(self):
         self.driver = webdriver.Chrome()
