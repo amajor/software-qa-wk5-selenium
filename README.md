@@ -20,7 +20,7 @@ The UAT must test for the following:
   - [x] Athletics
   - [x] Student Life
   - [x] Locations
-- [ ] User must be able to navigate to the Faculty/Staff directory from the homepage
+- [x] User must be able to navigate to the Faculty/Staff directory from the homepage
 - [x] User must be able to search for “Omari” and get results.
 
 ## Deliverables:

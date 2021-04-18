@@ -43,6 +43,25 @@ class TestLewisUniversityWebsite(unittest.TestCase):
         # Page source includes the text for the link.
         assert link_text in driver.page_source
 
+    # User must be able to navigate to the Faculty/Staff directory from the homepage
+    def test_navigation_to_faculty_directory_search(self):
+        driver = self.driver
+        driver.get("https://www.lewisu.edu")
+
+        # Navigate to Faculty / Staff page
+        faculty_staff_link = driver.find_element_by_link_text("Fac/Staff")
+        faculty_staff_link.click()
+
+        # Navigate to the Faculty & Staff Directory
+        faculty_directory_link = driver.find_element_by_link_text("Faculty/Staff Directory")
+        faculty_directory_link.click()
+
+        # Check page title to confirm correct page.
+        self.assertIn("Lewis University | Faculty/Staff Directory", driver.title)
+
+        faculty_directory_page_header = driver.find_element_by_css_selector('h4.SubTitle')
+        self.assertEqual("Faculty/Staff Directory".lower(), faculty_directory_page_header.text.lower())
+
     # User must be able to search for “Omari” and get results.
     def test_faculty_directory_search(self):
         driver = self.driver
