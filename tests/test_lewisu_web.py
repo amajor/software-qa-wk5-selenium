@@ -21,7 +21,8 @@ class TestLewisUniversityWebsite(unittest.TestCase):
     @parameterized.expand([
         ("About Us link", "About Us"),
         ("Academics link", "Academics"),
-        ("Admission & Aid link", "Admission &amp; Aid"),
+        ("Admission & Aid link (only 'Admission')", "Admission"),
+        ("Admission & Aid link (only 'Aid')", "Aid"),
         ("Athletics link", "Athletics"),
         ("Student Life link", "Student Life"),
         ("Locations link", "Locations")
@@ -31,7 +32,7 @@ class TestLewisUniversityWebsite(unittest.TestCase):
         driver.get("https://www.lewisu.edu")
 
         # Confirm that link is clickable (will raise exception if it is not!)
-        driver.find_element_by_link_text(link_text).click()
+        driver.find_element_by_partial_link_text(link_text).click()
 
         # Page source includes the text for the link.
         assert link_text in driver.page_source
