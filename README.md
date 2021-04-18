@@ -1,5 +1,7 @@
 # Lab 5: Automating UAT with Selenium
 
+See a screenshot of it all working together in the [summary](./docs/show_its_working.md).
+
 ## Readings:
 
 * [Selenium tutorial with Python](https://selenium-python.readthedocs.io/)
