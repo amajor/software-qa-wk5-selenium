@@ -27,5 +27,5 @@ The UAT must test for the following:
 
 ## Deliverables:
 
-- [ ] Python test cases.
-- [ ] Screenshots showing that all test cases run successfully.
+- [x] [Python test cases](./tests/test_lewisu_web.py).
+- [x] [Screenshots](./docs/images/LewisU_SeleniumTests.png) showing that all test cases run successfully.
