@@ -6,9 +6,15 @@ from selenium.webdriver.common.keys import Keys
 
 
 class TestLewisUniversityWebsite(unittest.TestCase):
+    driver = None
 
-    def setUp(self):
-        self.driver = webdriver.Chrome()
+    @classmethod
+    def setUpClass(cls):
+        cls.driver = webdriver.Chrome()
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.driver.close()
 
     # Tile of the homepage must include “Lewis University”
     def test_homepage_tile(self):
@@ -53,9 +59,6 @@ class TestLewisUniversityWebsite(unittest.TestCase):
         assert "No records" not in driver.page_source
         assert "Omari, Dr. Safwan" in driver.page_source
         assert "Associate Professor" in driver.page_source
-
-    def tearDown(self):
-        self.driver.close()
 
 
 if __name__ == "__main__":
