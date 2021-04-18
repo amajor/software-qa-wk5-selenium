@@ -1,4 +1,6 @@
 import unittest
+
+from parameterized import parameterized
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 
@@ -16,27 +18,23 @@ class TestLewisUniversityWebsite(unittest.TestCase):
 
     # Home page must include the following links:
     # About Us, Academics, Admission and Aid, Athletics, Student Life, Locations
-    def test_homepage_links(self):
+    @parameterized.expand([
+        ("About Us link", "About Us"),
+        ("Academics link", "Academics"),
+        ("Admission & Aid link", "Admission &amp; Aid"),
+        ("Athletics link", "Athletics"),
+        ("Student Life link", "Student Life"),
+        ("Locations link", "Locations")
+    ])
+    def test_homepage_links(self, name, link_text):
         driver = self.driver
         driver.get("https://www.lewisu.edu")
 
-        # Includes "About Us"
-        assert "About Us" in driver.page_source
+        # Confirm that link is clickable (will raise exception if it is not!)
+        driver.find_element_by_link_text(link_text).click()
 
-        # Includes "Academics"
-        assert "Academics" in driver.page_source
-
-        # Includes "Admission & Aid"
-        assert "Admission &amp; Aid" in driver.page_source
-
-        # Includes "Athletics"
-        assert "Athletics" in driver.page_source
-
-        # Includes "Student Life"
-        assert "Student Life" in driver.page_source
-
-        # Includes "Locations"
-        assert "Locations" in driver.page_source
+        # Page source includes the text for the link.
+        assert link_text in driver.page_source
 
     # User must be able to search for “Omari” and get results.
     def test_faculty_directory_search(self):
