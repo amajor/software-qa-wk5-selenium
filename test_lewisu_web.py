@@ -38,6 +38,23 @@ class PythonOrgSearch(unittest.TestCase):
         # Includes "Locations"
         assert "Locations" in driver.page_source
 
+    # User must be able to search for “Omari” and get results.
+    def test_faculty_directory_search(self):
+        driver = self.driver
+        driver.get("https://www.lewisu.edu/facstaffdirectory/FacStaffDir2.htm")
+
+        # Look for the search input field
+        elem = driver.find_element_by_name("last")
+
+        # Type in "Omari" and submit
+        elem.send_keys("Omari")
+        elem.send_keys(Keys.RETURN)
+
+        # Assert that you get back a record for Dr. Omari.
+        assert "No records" not in driver.page_source
+        assert "Omari, Dr. Safwan" in driver.page_source
+        assert "Associate Professor" in driver.page_source
+
     def tearDown(self):
         self.driver.close()
 
