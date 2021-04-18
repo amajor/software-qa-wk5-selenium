@@ -22,6 +22,13 @@ class TestLewisUniversityWebsite(unittest.TestCase):
         driver.get("https://www.lewisu.edu")
         self.assertIn("Lewis University", driver.title)
 
+        # Does the logo image exist?
+        logo_image_element = driver.find_element_by_css_selector('img.LogoImg')
+        self.assertTrue(logo_image_element)
+
+        # Does the logo image refer to the expected image file?
+        self.assertEqual("https://www.lewisu.edu/images/logo.png", logo_image_element.get_attribute('src'))
+
     # Home page must include the following links:
     # About Us, Academics, Admission and Aid, Athletics, Student Life, Locations
     @parameterized.expand([

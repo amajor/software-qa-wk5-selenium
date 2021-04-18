@@ -12,7 +12,7 @@ output.
 Your task is to carefully review the tutorial and develop UAT for [Lewis University website](https://www.lewisu.edu).
 
 The UAT must test for the following:
-- [ ] Tile of the homepage must include “Lewis University”
+- [x] Tile of the homepage must include “Lewis University”
 - [x] Home page must include the following links
   - [x] About Us
   - [x] Academics
