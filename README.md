@@ -13,13 +13,13 @@ Your task is to carefully review the tutorial and develop UAT for [Lewis Univers
 
 The UAT must test for the following:
 - [ ] Tile of the homepage must include “Lewis University”
-- [ ] Home page must include the following links
-  - [ ] About Us
-  - [ ] Academics
-  - [ ] Admission and Aid
-  - [ ] Athletics
-  - [ ] Student Life
-  - [ ] Locations
+- [x] Home page must include the following links
+  - [x] About Us
+  - [x] Academics
+  - [x] Admission and Aid
+  - [x] Athletics
+  - [x] Student Life
+  - [x] Locations
 - [ ] User must be able to navigate to the Faculty/Staff directory from the homepage
 - [ ] User must be able to search for “Omari” and get results.
 
